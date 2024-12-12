@@ -1,14 +1,46 @@
 [
-    {
-        "id": 1,
-        "title": "Escuadra",
-        "price": 323,
-        "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png"
-    },
-    {
-        "id": 2,
-        "title": "Calculadora",
-        "price": 234,
-        "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png"
-    }
+  {
+    "id": 1,
+    "title": "Escuadra",
+    "description": "Escuadra de madera, 1.5m",
+    "code": "abc123",
+    "price": 323,
+    "status": true,
+    "stock": 15,
+    "category": "Herramientas",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png"
+  },
+  {
+    "id": 2,
+    "title": "Calculadora",
+    "description": "Calculadora científica, 12 botones",
+    "code": "def456",
+    "price": 200,
+    "status": true,
+    "stock": 5,
+    "category": "Herramientas",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png"
+  },
+  {
+    "id": "78a777c6-28e8-4fb3-a797-cdcbabc2fff0",
+    "title": "Cartuchera",
+    "description": "LoremIpsumDolorsitamet",
+    "code": "045e37cef49732a58134",
+    "price": "13000",
+    "status": true,
+    "stock": "10",
+    "category": "utils",
+    "thumbnail": "image"
+  },
+  {
+    "id": "df7ee22d-0545-4323-8464-87a48e9a3bf0",
+    "title": "Cartuchera",
+    "description": "LoremIpsumDolorsitamet",
+    "code": "b38c68da16974eab4ce4",
+    "price": "13000",
+    "status": true,
+    "stock": "10",
+    "category": "utils",
+    "thumbnail": "image"
+  }
 ]

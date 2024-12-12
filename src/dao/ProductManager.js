@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { generateCode, generateId } from '../utils.js'
 
 export class productManager {
     static #path = ''
@@ -21,9 +22,13 @@ export class productManager {
         return product
     }
 
-    static async addProduct(product = {}) {
-        if (!fs.existsSync(this.#path)) {
-            await fs.promises.writeFile(this.#path, JSON.stringify(product))
+    static async addProduct(product) {
+        try {
+            const products = await this.getProducts()
+            products.push(product)
+            await fs.promises.writeFile(this.#path, JSON.stringify(products, null, 2))
+        } catch (error) {
+            throw new Error('Error adding product')
         }
     }
     static async updateProduct(id, product) {
@@ -31,7 +36,7 @@ export class productManager {
         const index = products.findIndex(prod => prod.id === id)
         if (index !== -1) {
             products[index] = product
-            await fs.promises.writeFile(this.#path, JSON.stringify(products))
+            await fs.promises.writeFile(this.#path, JSON.stringify(products, null, 2))
         }
     }
 
@@ -40,7 +45,8 @@ export class productManager {
         const index = products.findIndex(prod => prod.id === id)
         if (index !== -1) {
             products.splice(index, 1)
-            await fs.promises.writeFile(this.#path, JSON.stringify(products))
+            await fs.promises.writeFile(this.#path, JSON.stringify(products, null, 2))
         }
     }
 }
+

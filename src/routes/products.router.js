@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { productManager } from "../dao/ProductManager.js";
-import { errorHandler } from "../utils.js";
+import { errorHandler, generateCode, generateId } from "../utils.js";
 
 export const router = Router()
 
@@ -41,9 +41,20 @@ router.get('/:id', async(req, res) => {
     }
 })
 
-router.post('/', (req, res) => {
+router.post('/:id/:title/:description/:code/:price/:status/:stock/:category/:thumbnail', (req, res) => {
+    let product = req.params
+    if (!product.title || !product.description || !product.price || !product.status || !product.stock || !product.category || !product.thumbnail) {
+        res.setHeader('Content-Type','application/json');
+        return res.status(400).json({error: 'Todos los campos son obligatorios'})
+    }
+    let uniqueID = generateId()
+    let uniqueCode = generateCode()
+    req.params.id = uniqueID
+    req.params.code = uniqueCode
+    req.params.status = true
+    productManager.addProduct(product)
     res.setHeader('Content-Type','application/json');
-    return res.status(201).json({payload: 'Producto creado'});
+    return res.status(201).json({payload: {product}});
 })
 
 router.put('/:id', (req, res) => {
