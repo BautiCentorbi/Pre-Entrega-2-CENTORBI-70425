@@ -1,5 +1,4 @@
 import fs from 'fs'
-import { generateCode, generateId } from '../utils.js'
 
 export class productManager {
     static #path = ''

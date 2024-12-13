@@ -11,7 +11,7 @@ app.use('/api/products',productsRouter);
 
 app.get('/',(req,res)=>{
     res.setHeader('Content-Type','text/plain');
-    res.status(200).send('OK');
+    res.status(200).send('Pre Entrega 1 - BAUTISTA CENTORBI \n CoderHouse - Backend 1 - 70425');
 })
 
 const server=app.listen(PORT,()=>{
