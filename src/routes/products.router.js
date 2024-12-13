@@ -86,8 +86,8 @@ router.delete("/:id", async (req, res) => {
   try {
     const result = await productManager.deleteProduct(id);
     if (!result) {
-        res.setHeader("Content-Type", "application/json");
-        return res.status(404).json({ error: "Producto no encontrado" });
+      res.setHeader("Content-Type", "application/json");
+      return res.status(404).json({ error: "Producto no encontrado" });
     }
     res.setHeader("Content-Type", "application/json");
     return res.status(200).json({ payload: `Producto: ${id} eliminado` });
