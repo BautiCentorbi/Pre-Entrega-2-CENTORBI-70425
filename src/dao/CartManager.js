@@ -53,15 +53,34 @@ export class cartManager {
         }
     }
 
-    static async deleteProduct(id) {
+    static async deleteCart(id) {
         let carts = await this.getCart();
-        let index = carts.findIndex(cart => cart.id === id);
+        let index = carts.findIndex(cart => cart.id === parseInt(id));
         if (index !== -1) {
             carts.splice(index, 1);
-            await fs.promises.writeFile(this.#path, JSON.stringify(carts, null, 2));
+            await fs.promises.writeFile(this.#path, JSON.stringify(carts.length ? carts : [], null, 2));
             return true;
         }
         return false;
+    }
+
+    static async deleteProductFromCart(cartid, productid) {
+        try {
+            let carts = await this.getCart();
+            let cart = carts.find(cart => cart.id === parseInt(cartid));
+            if (!cart) {
+                throw new Error('Cart not found');
+            }
+            let index = cart.products.findIndex(prod => prod.product === productid);
+            if (index !== -1) {
+                cart.products.splice(index, 1);
+                await fs.promises.writeFile(this.#path, JSON.stringify(carts, null, 2));
+                return true;
+            }
+            return false;
+        } catch (error) {
+            throw new Error('Error deleting product from cart');
+        }
     }
 }
 

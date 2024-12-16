@@ -67,3 +67,25 @@ router.post('/:cid/product/:pid', async (req, res) => {
     }
 });
 
+router.delete('/:cid', async (req, res) => {
+    const { cid } = req.params;
+    try {
+        await cartManager.deleteCart(cid);
+        res.setHeader('Content-Type', 'application/json');
+        return res.status(200).json({ message: 'Cart deleted' });
+    } catch (error) {
+        errorHandler(res, error);
+    }
+});
+
+router.delete('/:cid/product/:pid', async (req, res) => {
+    const { cid, pid } = req.params;
+    try {
+        await cartManager.deleteProductFromCart(cid, pid);
+        res.setHeader('Content-Type', 'application/json');
+        return res.status(200).json({ message: 'Product deleted from cart' });
+    } catch (error) {
+        errorHandler(res, error);
+    }
+});
+

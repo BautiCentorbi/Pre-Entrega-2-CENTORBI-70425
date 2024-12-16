@@ -3,21 +3,8 @@
     "id": 1,
     "products": [
       {
-        "product": "12959711-3b8c-45a2-9bfa-8a391d5c48",
-        "quantity": 3
-      },
-      {
         "product": "5b0f1b75-1b3a-4e9a-aaf8-9bf1b83a6e8a",
         "quantity": 2
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "products": [
-      {
-        "product": "5b0f1b75-1b3a-4e9a-aaf8-9bf1b83a6",
-        "quantity": 1
       }
     ]
   }
