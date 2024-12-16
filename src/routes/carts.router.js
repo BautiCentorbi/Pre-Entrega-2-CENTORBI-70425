@@ -17,9 +17,9 @@ router.get('/', async(req,res)=>{
 })
 
 router.get('/:cid', async(req,res)=>{
-    let {id} = req.params
+    let {cid} = req.params
     try {
-        let cartById = await cartManager.getCartById(id)
+        let cartById = await cartManager.getCartById(cid)
         if (!cartById) {
             res.setHeader('Content-Type','application/json')
             return res.status(404).json({error:'Carrito no encontrado'})
@@ -56,10 +56,10 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.post('/:cid/:pid', async (req, res) => {
+router.post('/:cid/product/:pid', async (req, res) => {
     const { cid, pid } = req.params;
     try {
-        await cartManager.addProductToCart(cid, pid, 1);
+        await cartManager.addProductToCart(cid, pid);
         res.setHeader('Content-Type', 'application/json');
         return res.status(200).json({ message: 'Product added to cart' });
     } catch (error) {

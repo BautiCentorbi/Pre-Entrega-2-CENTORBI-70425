@@ -16,9 +16,8 @@ export class cartManager {
     }
 
     static async getCartById(id) {
-        const carts = await this.getCart()
-        let cart = carts.find(cart => cart.id === id)
-        return cart
+        const carts = await this.getCart();
+        return carts.find(cart => cart.id === parseInt(id)) || null;
     }
 
     static async createCart() {
@@ -33,26 +32,36 @@ export class cartManager {
         }
     }
 
-    static async addProductToCart(cartid, productid ) {
+    static async addProductToCart(cartid, productid) {
         try {
-            let cart = await this.getCartById(cartid)
-            let newProduct = { product: productid, quantity: 1 }
-            cart.products.push(newProduct)
-            await fs.promises.writeFile(this.#path, JSON.stringify(cart, null, 2))
+            let carts = await this.getCart();
+            let cart = carts.find(cart => cart.id === parseInt(cartid));
+            if (!cart) {
+                throw new Error('Cart not found');
+            }
+
+            let product = cart.products.find(prod => prod.product === productid);
+            if (product) {
+                product.quantity++;
+            } else {
+                cart.products.push({ product: productid, quantity: 1 });
+            }
+
+            await fs.promises.writeFile(this.#path, JSON.stringify(carts, null, 2));
         } catch (error) {
-            throw new Error('Error adding product to cart')
+            throw new Error('Error adding product to cart');
         }
     }
 
     static async deleteProduct(id) {
-        let cart = await this.getCart()
-        let index = cart.findIndex(prod => prod.id === id)
+        let carts = await this.getCart();
+        let index = carts.findIndex(cart => cart.id === id);
         if (index !== -1) {
-            cart.splice(index, 1)
-            await fs.promises.writeFile(this.#path, JSON.stringify(cart, null, 2))
-            return true
+            carts.splice(index, 1);
+            await fs.promises.writeFile(this.#path, JSON.stringify(carts, null, 2));
+            return true;
         }
-        return false
+        return false;
     }
 }
 
