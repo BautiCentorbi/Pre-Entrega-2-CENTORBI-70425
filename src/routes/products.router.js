@@ -4,7 +4,7 @@ import { errorHandler, generateId } from "../utils.js";
 
 export const router = Router();
 
-productManager.setPath("./src/data/productos.json");
+productManager.setPath("./src/data/products.json");
 
 router.get("/", async (req, res) => {
   try {
@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:pid", async (req, res) => {
   let { id } = req.params;
 
   try {
