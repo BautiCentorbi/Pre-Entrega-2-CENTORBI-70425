@@ -1,7 +1,7 @@
 [
   {
     "title": "Escuadra",
-    "description": "Escuadra de madera, 1.5m",
+    "description": "Escuadra de madera marca BIC, 1.5m",
     "code": "abc123",
     "price": 323,
     "status": true,
@@ -22,14 +22,13 @@
     "id": "5b0f1b75-1b3a-4e9a-aaf8-9bf1b83a6e8a"
   },
   {
-    "title": "Lápiz Bic",
-    "description": "Un lápiz bic, sin mas que agregar",
-    "code": "rec123",
-    "price": 1900,
+    "title": "Globo Terraqueo",
+    "description": "Globo Terraqueo con eje vertical, peso de 1kg",
+    "code": "ghi789",
+    "price": 200,
     "status": true,
-    "stock": 18,
+    "stock": 5,
     "category": "Herramientas",
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
-    "id": "cf5baa13-5b33-4c0b-a23e-9b3c0a93826a"
-  }
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+    "id": "5b0f1b75-1b3a-4e9a-aaf8-9bf1b83a6e8b"}
 ]
