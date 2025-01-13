@@ -42,3 +42,7 @@ router.get("/carts/:cid", async (req, res) => {
     res.render("error", { error: "Carrito no encontrado" });
   }
 });
+
+router.get("/realtimeproducts", async (req, res) => {
+  res.render("realTimeProducts", {});
+})
