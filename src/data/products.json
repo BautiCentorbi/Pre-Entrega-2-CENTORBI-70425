@@ -24,11 +24,12 @@
   {
     "title": "Globo Terraq.",
     "description": "Globo Terraqueo con eje vertical, peso de 1kg",
-    "code": "ghi789",
-    "price": 200,
+    "code": "123sac",
+    "price": "18000",
     "status": true,
-    "stock": 5,
-    "category": "Herramientas",
+    "stock": "12",
+    "category": "utiles",
     "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
-    "id": "5b0f1b75-1b3a-4e9a-aaf8-9bf1b83a6e8b"}
+    "id": "a9127e5a-5dbd-45e9-a3d4-f2890fecff01"
+  }
 ]
